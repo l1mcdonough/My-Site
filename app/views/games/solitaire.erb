@@ -1,0 +1,9 @@
+<% provide(:page_specific_css, stylesheet_link_tag("solitaire")) %>
+<% provide(:page_specific_js, javascript_include_tag('solitaire')) %>
+
+<div class="deck-panel"> faces <div class="deck">I like faces</div></div>
+<div class="sorted-card-panel">
+  <% 4.times do %>
+    <div class="empty-card-space"></div>
+  <% end %>
+</div>

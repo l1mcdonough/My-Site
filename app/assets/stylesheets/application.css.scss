@@ -3,8 +3,22 @@
 
 .navbar-default {
   background-color: GoldenRod;
+  border-color: brown;
 }
 
-.navbar-nav > li >a{
-  color:Green;
+#main-nav {
+  a {
+    color: brown;
+  }
+  .navbar-header a {
+    font-family: 'Dawning of a New Day';
+    font-weight: bold;
+    font-size: 22px;
+  }
+}
+
+
+
+body {
+  background-color: gray;
 }

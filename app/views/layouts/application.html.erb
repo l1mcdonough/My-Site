@@ -3,9 +3,11 @@
   <head>
     <title>MySite</title>
     <%= csrf_meta_tags %>
-
+    <link href='https://fonts.googleapis.com/css?family=Dawning of a New Day' rel='stylesheet'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield :page_specific_css %>
+    <%= yield :page_specific_js %>
   </head>
 
   <body>

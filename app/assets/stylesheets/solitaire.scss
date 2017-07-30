@@ -1,0 +1,39 @@
+@mixin panel {
+  float: left;
+  height: 45vh;
+  text-align: center;
+}
+
+@mixin card-space {
+  height: 25vh;
+  width: 10vw;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@mixin card-traits {
+  @include card-space;
+  border: 1px solid black;
+}
+
+.deck-panel {
+  @include panel;
+  width: 25vw;
+  background-color: blue;
+  .deck{
+    @include card-traits;
+    background-color: red;
+    color:blue;
+  }
+}
+
+.sorted-card-panel {
+  @include panel;
+  width: 74vw;
+  background-color: green;
+}
+
+.empty-card-space {
+  @include card-space;
+  border: black solid;
+}
