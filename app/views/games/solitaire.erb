@@ -1,9 +1,12 @@
 <% provide(:page_specific_css, stylesheet_link_tag("solitaire")) %>
 <% provide(:page_specific_js, javascript_include_tag('solitaire')) %>
 
-<div class="deck-panel"> faces <div class="deck">I like faces</div></div>
+<div class="deck-panel"><div class="deck" id="deck"></div><div class="empty-card-space" id="flipped-deck"></div></div>
 <div class="sorted-card-panel">
   <% 4.times do %>
     <div class="empty-card-space"></div>
   <% end %>
 </div>
+<% 7.times do |spaceNumber|%>
+    <div class="empty-card-space" id="bottom-cards<%= spaceNumber %>"></div>
+<% end %>

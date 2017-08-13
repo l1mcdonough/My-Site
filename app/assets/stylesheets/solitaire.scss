@@ -8,7 +8,6 @@
   height: 25vh;
   width: 10vw;
   display: inline-block;
-  vertical-align: middle;
 }
 
 @mixin card-traits {
@@ -25,6 +24,29 @@
     background-color: red;
     color:blue;
   }
+}
+
+.card{
+  @include card-traits;
+  background-color: white;
+  .card-top{
+    float: left;
+  }
+  .card-middle{
+    margin: auto;
+    font-size: 30pt;
+  }
+  .card-bottom{
+    float: right;
+  }
+}
+
+.red {
+  color: red;
+}
+
+.black {
+  color: black;
 }
 
 .sorted-card-panel {
