@@ -1,18 +1,31 @@
+
 @mixin panel {
   float: left;
   height: 45vh;
-  text-align: center;
 }
 
-@mixin card-space {
+@mixin card-width{
+  width: 9vw;
+}
+
+@mixin card-height{
   height: 25vh;
-  width: 10vw;
-  display: inline-block;
+}
+
+@mixin card-size{
+  @include card-height;
+  @include card-width;
+}
+
+.card-space {
+  @include card-size;
+  float: left;
+  margin-left: 2.5%;
 }
 
 @mixin card-traits {
-  @include card-space;
   border: 1px solid black;
+  background-color: white;
 }
 
 .deck-panel {
@@ -20,25 +33,38 @@
   width: 25vw;
   background-color: blue;
   .deck{
-    @include card-traits;
+    @extend .card-space;
     background-color: red;
-    color:blue;
   }
+}
+
+.card-top{
+  float: left;
 }
 
 .card{
   @include card-traits;
-  background-color: white;
-  .card-top{
-    float: left;
-  }
+  @include card-size;
+  border-radius: 5px;
+  position: relative;
+
   .card-middle{
-    margin: auto;
-    font-size: 30pt;
+    position: absolute;
+    top: 15%;
+    left: 35%;
+    font-size: 5vw;
   }
   .card-bottom{
-    float: right;
+    position: absolute;
+    bottom: 0;
+    right: 1%;
   }
+}
+
+.card-stack-top{
+  @include card-traits;
+  @include card-width;
+  height: 5vh;
 }
 
 .red {
@@ -56,6 +82,6 @@
 }
 
 .empty-card-space {
-  @include card-space;
+  @extend .card-space;
   border: black solid;
 }

@@ -50,17 +50,27 @@ class Card {
         return this.getSuitHTML() + " " + this.getNumber();
     }
 
+    getClasses(){
+        return this.getCardColor() + " card";
+    }
+
     getCardDiv(divClass, content){
-        return "<div class=" + divClass + ">" + content + "</div>"
+        return "<div class=\"" + divClass + "\">" + content + "</div>";
     }
     
 
     getCardHTML(){
-        var HTML = "";
-        HTML += this.getCardDiv("card-top", this.getCardIdentifier());
-        HTML += this.getCardDiv("card-middle", this.getSuitHTML());
-        HTML += this.getCardDiv("card-bottom", this.getCardIdentifierBackwards());
-        return HTML;
+        let innerDivs = "";
+        innerDivs += this.getCardDiv("card-top", this.getCardIdentifier());
+        innerDivs += this.getCardDiv("card-middle", this.getSuitHTML());
+        innerDivs += this.getCardDiv("card-bottom", this.getCardIdentifierBackwards());
+        return this.getCardDiv(this.getClasses(), innerDivs);
+    }
+
+    getCardStackTopHTML(){
+        //cardTopDiv and cardStackTop are two different things
+        const cardTopDiv = this.getCardDiv("card-top", this.getCardIdentifier());
+        return this.getCardDiv("card-stack-top", cardTopDiv);
     }
     
 }
@@ -102,16 +112,66 @@ class Deck {
     }
 }
 
-class CardPlacer {
+class CardInterface {
+    static changeClass(id, className){
+        $(id).attr({"class" : className});
+    }
+
+    static getID(name){
+        return "#" + name;
+    }
+
+    static getCard(text){
+        let withoutHTML = text.replace('&', '');
+        withoutHTML = withoutHTML.replace(';', '');
+        const splitText = withoutHTML.split();
+        const cardNum = parseInt(splitText[0]);
+        const suit = splitText[1];
+        return new Card(cardNum, suit);
+    }
+
+    static getTopCardJQuery(source){
+        const fullID = this.getID(source);
+        return $(fullID).find(".card").last();
+    }
+
+    static getTopCard(source){
+        const CardHTML = this.getTopCardJQuery(source).find(".card-top").html();
+        return this.getCard(CardHTML);
+    }
+
+
+    //replaces full card with just the top
+    static replaceTopCardWithTop(source){
+        const card = this.getTopCard(source);
+        this.getTopCardJQuery(source).remove();
+        const id = this.getID(source);
+        $(id).append(card.getCardStackTopHTML());
+    }
+
     static placeCard(card, dest){
-        $("#" + dest).html(card.getCardHTML());
+        const destID = this.getID(dest);
+        $(destID).html(card.getCardHTML());
+        this.changeClass(destID, "card-space");
+    }
+
+    static stackCard(card, dest){
+        if ($(this.getID(dest)).html()){
+            console.log($(this.getID(dest)).html());
+            this.replaceTopCardWithTop(dest);
+            console.log("it's true");
+            $(this.getID(dest)).append(card.getCardHTML());
+        }
+        else
+            this.placeCard(card, dest);
     }
 }
 
-class BottomCards {
-    deal(deck){
+class CardDealer {
+    static deal(deck){
         var card = deck.flipCard();
-        CardPlacer.placeCard(card, "bottom");
+        CardInterface.stackCard(card, "bottom-cards1");
+        CardInterface.stackCard(card, "bottom-cards1");
     }
     constructor(deck){
 
@@ -119,13 +179,12 @@ class BottomCards {
 }
 console.log("Hello");
 var deck = new Deck();
-$(document).ready(function () {
+
+$(function () {
+    CardDealer.deal(deck);
     $("#deck").click( function() {
         var topCard = deck.flipCard();
-        $('#flipped-deck').attr({"class" : topCard.getCardColor() + " card"});
         $('#flipped-deck').html(topCard.getCardHTML());
-        console.log(topCard.getCardHTML());
-        console.log("clicked");
     });
 });
 
