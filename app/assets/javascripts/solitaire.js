@@ -112,6 +112,10 @@ class Deck {
     }
 }
 
+class BottomCards {
+
+}
+
 class CardInterface {
     static changeClass(id, className){
         $(id).attr({"class" : className});
