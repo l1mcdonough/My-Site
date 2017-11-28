@@ -33,8 +33,10 @@ class Card {
         var color;
         if (this.suit == "diams" || this.suit == "hearts")
             color = "red";
-        else
+        else if (this.suit == "clubs" || this.suit == "spades")
             color = "black";
+        else
+            console.log("Error: Can't get the color")
         return color;
     }
 
@@ -70,12 +72,26 @@ class Card {
     getCardStackTopHTML(){
         //cardTopDiv and cardStackTop are two different things
         const cardTopDiv = this.getCardDiv("card-top", this.getCardIdentifier());
-        return this.getCardDiv("card-stack-top", cardTopDiv);
+        return this.getCardDiv("card-stack-top " + this.getCardColor(), cardTopDiv);
     }
     
 }
 
-class Deck {
+class CardStack {
+    constructor(){
+        this.cards = [];
+    }
+
+    flipCard(){
+        return this.cards.pop();
+    }
+
+    add(card){
+        this.cards.push(card)
+    }
+}
+
+class Deck extends CardStack{
     makeAllWithSuit(suit){
         for (var cardNumber = 1; cardNumber <= 13; cardNumber++) {
             var currentCard = new Card(cardNumber, suit);
@@ -92,7 +108,7 @@ class Deck {
     }
 
     constructor(){
-        this.cards = [];
+        super();
         this.makeDeck();
         this.shuffleDeck()
     }
@@ -113,6 +129,10 @@ class Deck {
 }
 
 class BottomCards {
+    constructor(){
+        this.cardStacks = [];
+    }
+
 
 }
 
@@ -125,13 +145,56 @@ class CardInterface {
         return "#" + name;
     }
 
+    static encodeSuit(suit){
+        let suitWord;
+        switch (suit){
+            case "♥":
+                suitWord = "hearts";
+                break;
+            case "♦":
+                suitWord = "diams";
+                break;
+            case "♠":
+                suitWord = "spades";
+                break;
+            case "♣":
+                suitWord = "clubs";
+                break;
+            default:
+                console.log("ERROR: suit not recognized");
+        }
+        return suitWord;
+    }
+    static getTrueNumber(cardNum){
+        let trueCardNum;
+        switch (cardNum){
+            case "A":
+                trueCardNum = 1;
+                break;
+            case "J":
+                trueCardNum = 11;
+                break;
+            case "Q":
+                trueCardNum = 12;
+                break;
+            case "K":
+                trueCardNum = 13;
+                break;
+            default:
+                trueCardNum = parseInt(cardNum);
+                break;
+        }
+        return trueCardNum;
+    }
+
     static getCard(text){
-        let withoutHTML = text.replace('&', '');
-        withoutHTML = withoutHTML.replace(';', '');
-        const splitText = withoutHTML.split();
-        const cardNum = parseInt(splitText[0]);
-        const suit = splitText[1];
-        return new Card(cardNum, suit);
+        console.log("the text passed in to getCard is " + text);
+        const splitText = text.split(" ");
+        const cardNum = splitText[0];
+        const trueCardNum = CardInterface.getTrueNumber(cardNum);
+        const suitSymbol = splitText[1];
+        const suitText = this.encodeSuit(suitSymbol);
+        return new Card(trueCardNum, suitText);
     }
 
     static getTopCardJQuery(source){

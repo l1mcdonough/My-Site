@@ -7,6 +7,7 @@
     <list default="true" id="c75cbfe1-5e27-44e0-a193-5e4658aa5681" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/solitaire.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/solitaire.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/javascripts/solitaireSpec.js" afterPath="$PROJECT_DIR$/spec/javascripts/solitaireSpec.js" />
     </list>
     <ignored path="MySite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,8 +75,18 @@
       <file leaf-file-name="solitaire.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/solitaire.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1026">
-              <caret line="114" column="12" lean-forward="false" selection-start-line="114" selection-start-column="6" selection-end-line="114" selection-end-column="12" />
+            <state relative-caret-position="498">
+              <caret line="195" column="41" lean-forward="false" selection-start-line="195" selection-start-column="41" selection-end-line="195" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="static_pages.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/static_pages.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -94,9 +105,14 @@
       <file leaf-file-name="solitaireSpec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/javascripts/solitaireSpec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-              <folding />
+            <state relative-caret-position="144">
+              <caret line="8" column="63" lean-forward="true" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
+              <folding>
+                <marker date="1511834055017" expanded="true" signature="287:294" ph="♣" />
+                <marker date="1511834055017" expanded="true" signature="1206:1213" ph="♣" />
+                <marker date="1511834055017" expanded="true" signature="1246:1253" ph="♣" />
+                <marker date="1511834055017" expanded="true" signature="1286:1293" ph="♣" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,28 +121,12 @@
         <entry file="file://$PROJECT_DIR$/spec/javascripts/fixtures/solitaire.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="558">
-              <caret line="31" column="176" lean-forward="false" selection-start-line="31" selection-start-column="176" selection-end-line="31" selection-end-column="176" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jasmine.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/javascripts/support/jasmine.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1566">
-              <caret line="87" column="1" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jasmine_helper.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/javascripts/support/jasmine_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <caret line="31" column="166" lean-forward="false" selection-start-line="31" selection-start-column="147" selection-end-line="31" selection-end-column="166" />
+              <folding>
+                <element signature="e#1162#1169#0" expanded="true" />
+                <element signature="e#1200#1207#1" expanded="true" />
+                <element signature="e#1238#1245#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -178,8 +178,8 @@
         <option value="$PROJECT_DIR$/spec/javascripts/support/jasmine.yml" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/solitaire.scss" />
         <option value="$PROJECT_DIR$/spec/javascripts/fixtures/solitaire.html" />
-        <option value="$PROJECT_DIR$/spec/javascripts/solitaireSpec.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/solitaire.js" />
+        <option value="$PROJECT_DIR$/spec/javascripts/solitaireSpec.js" />
       </list>
     </option>
   </component>
@@ -218,7 +218,6 @@
     </navigator>
     <panes>
       <pane id="RailsProjectView" />
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -298,6 +297,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -545,18 +545,26 @@
       <workItem from="1502924466682" duration="2621000" />
       <workItem from="1502996379753" duration="6964000" />
       <workItem from="1503151059859" duration="40314000" />
-      <workItem from="1505911865961" duration="1558000" />
+      <workItem from="1505911865961" duration="3794000" />
+      <workItem from="1506089106403" duration="4353000" />
+      <workItem from="1507077472966" duration="3943000" />
+      <workItem from="1508111550186" duration="7089000" />
+      <workItem from="1508509307456" duration="1770000" />
+      <workItem from="1508573411515" duration="5921000" />
+      <workItem from="1509219045986" duration="7438000" />
+      <workItem from="1510431823940" duration="5255000" />
+      <workItem from="1511832005570" duration="1600000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145335000" />
+    <option name="totallyTimeSpent" value="184940000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="134" y="99" width="1857" height="962" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1606469" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15956873" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -811,13 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/static_pages.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/mailer.text.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -861,14 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/javascripts/support/jasmine_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/controllers/static_pages_controller_test.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -891,6 +884,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/javascripts/support/jasmine_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/javascripts/support/jasmine.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="87" column="1" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/javascripts/fixtures/solitaire.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="166" lean-forward="false" selection-start-line="31" selection-start-column="147" selection-end-line="31" selection-end-column="166" />
+          <folding>
+            <element signature="e#1162#1169#0" expanded="true" />
+            <element signature="e#1200#1207#1" expanded="true" />
+            <element signature="e#1238#1245#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/static_pages.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -899,25 +926,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/javascripts/support/jasmine.yml">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/static_pages.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1566">
-          <caret line="87" column="1" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/games.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="72">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -938,26 +950,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/javascripts/fixtures/solitaire.html">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/games.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="176" lean-forward="false" selection-start-line="31" selection-start-column="176" selection-end-line="31" selection-end-column="176" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/javascripts/solitaireSpec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="144">
+          <caret line="8" column="63" lean-forward="true" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
+          <folding>
+            <marker date="1511834055017" expanded="true" signature="287:294" ph="♣" />
+            <marker date="1511834055017" expanded="true" signature="1206:1213" ph="♣" />
+            <marker date="1511834055017" expanded="true" signature="1246:1253" ph="♣" />
+            <marker date="1511834055017" expanded="true" signature="1286:1293" ph="♣" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/solitaire.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1026">
-          <caret line="114" column="12" lean-forward="false" selection-start-line="114" selection-start-column="6" selection-end-line="114" selection-end-column="12" />
+        <state relative-caret-position="498">
+          <caret line="195" column="41" lean-forward="false" selection-start-line="195" selection-start-column="41" selection-end-line="195" selection-end-column="41" />
           <folding />
         </state>
       </provider>

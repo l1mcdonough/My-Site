@@ -6,9 +6,10 @@
 describe("Card", function () {
     const testCard = new Card(4, "clubs");
     it("should give card stack top HTML", function(){
-        expect(testCard.getCardStackTopHTML()).toEqual("<div class=\"card-stack-top\"><div class=\"card-top\">" + testCard.getCardIdentifier() +"</div></div>");
+        expect(testCard.getCardStackTopHTML()).toEqual("<div class=\"card-stack-top black\"><div class=\"card-top\">4 &clubs;</div></div>");
     });
 });
+
 describe("Card Interface", function(){
     const testCard = new Card(4, "clubs");
     beforeEach(function () {
@@ -23,10 +24,21 @@ describe("Card Interface", function(){
         CardInterface.stackCard(testCard, "bottom-cards2");
         CardInterface.stackCard(testCard2, "bottom-cards2");
         const stackedCardHTML = testCard.getCardStackTopHTML() + testCard2.getCardHTML();
-        expect($("#bottom-cards2")).toHaveHtml(stackedCardHTML);
+        const actualHTML = $("#bottom-cards2").html();
+        expect(actualHTML).toEqual(stackedCardHTML)
     });
     it("should get top card", function(){
-    const expectedElement = "<div class=\"black card\"><div class=\"card-top\">5 ♣</div><div class=\"card-middle\">♣</div><div class=\"card-bottom\">♣ 5</div></div>";
+        const expectedElement = "<div class=\"black card\"><div class=\"card-top\">5 &clubs;</div><div class=\"card-middle\">&clubs;</div><div class=\"card-bottom\">&clubs; 5</div></div>";
         CardInterface.getTopCard()
+    });
+});
+
+describe("Bottom Cards Class", function(){
+    it("Should deal cards incrementally", function(){
+      for(stackNumber = 0; stackNumber < 7; stackNumber++){
+          const stackSelector = "#bottom-cards" + stackNumber + " > div";
+          const stackCount = $(stackSelector).length;
+          expect(stackCount).toEqual(stackNumber);
+      }
     });
 });
